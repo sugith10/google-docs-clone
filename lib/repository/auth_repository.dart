@@ -18,8 +18,10 @@ class AuthRepository {
       final user = await _googleSignIn.signIn();
 
       if (user != null) {
-        print(user.email);
-        print(user.displayName);
+        final token = await user.authentication;
+        print("token: ${token.idToken}");
+        // print(user.email);
+        // print(user.id);
       } else {
         print("No user");
       }
